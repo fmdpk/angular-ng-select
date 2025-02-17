@@ -5,25 +5,28 @@
 //     --ag-border-color: #ddd;
 //     --ag-row-hover-color: #e7f3ff;
 //   }
-  
+
 //   .ag-theme-balham .ag-header {
 //     background-color: #0078d7;
 //     color: white;
 //   }
-  
+
 //   .ag-theme-balham .ag-cell {
 //     padding: 10px;
 //     font-size: 14px;
 //   }
-  
-  /* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
 .ag-theme-balham .ag-header-checkbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .ag-theme-balham .ag-checkbox {
-    margin: 0;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ag-theme-balham .ag-checkbox {
+  margin: 0;
+}
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+// ... or
+// @import "~@ng-select/ng-select/themes/material.theme.css";

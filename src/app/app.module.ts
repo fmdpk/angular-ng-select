@@ -4,10 +4,21 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AgGridModule } from "ag-grid-angular";
+import { NgSelectComponent } from "./components/ng-select/ng-select.component";
+import { NgSelectModule } from "@ng-select/ng-select";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, AgGridModule.withComponents([])],
+  declarations: [AppComponent, NgSelectComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    AgGridModule.withComponents([]),
+    NgSelectModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
