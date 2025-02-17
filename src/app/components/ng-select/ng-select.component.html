@@ -3,9 +3,9 @@
   This allows to load as big data as you want.
 </p>
 
-<ng-select [items]="photosBuffer" class="my-ng-select" [virtualScroll]="true" [loading]="loading" bindLabel="title"
-  bindValue="thumbnailUrl" placeholder="Select photo" appendTo=".my-ng-select" (scroll)="onScroll($event)"
-  (scrollToEnd)="onScrollToEnd()">
+<ng-select [items]="photosBuffer" [searchFn]="customSearchFn" class="my-ng-select" [virtualScroll]="true"
+  [loading]="loading" bindLabel="title" bindValue="thumbnailUrl" placeholder="Select photo" appendTo=".my-ng-select"
+  (scroll)="onScroll($event)" (scrollToEnd)="onScrollToEnd()">
   <ng-template ng-header-tmp>
     <small class="form-text text-muted">Loaded {{photosBuffer.length}} of {{photos.length}}</small>
   </ng-template>
@@ -13,3 +13,39 @@
     <b>{{index}}</b> {{item.title}}
   </ng-template>
 </ng-select>
+
+<br />
+<br />
+<br />
+<br />
+
+<h5>Custom server-side search</h5>
+<hr>
+<p>Use <b>typeahead</b> to subscribe to search term and load async items.</p>
+<label>Multi select + Typeahead + Custom items (tags)</label>
+<br />
+<br />
+<br />
+<!-- <ng-select [items]="people3$ | async" bindLabel="name" [addTag]="true" [multiple]="true" [hideSelected]="true" -->
+<ng-select [items]="people3$ | async" bindLabel="name" [trackByFn]="trackByFn" [loading]="people3Loading"
+  [typeahead]="people3input$" [(ngModel)]="selectedPersons">
+  <ng-template ng-typetosearch-tmp>
+    <div class="ng-option disabled">
+      Start typing...
+    </div>
+  </ng-template>
+  <ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+    <div class="ng-option disabled">
+      No data found for "{{searchTerm}}"
+    </div>
+  </ng-template>
+  <ng-template ng-loadingtext-tmp let-searchTerm="searchTerm">
+    <div class="ng-option disabled">
+      Fetching data for "{{searchTerm}}"
+    </div>
+  </ng-template>
+</ng-select>
+---
+<p style="margin-bottom:300px">
+  Selected persons: {{selectedPersons | json}}
+</p>

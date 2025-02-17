@@ -8,6 +8,7 @@ import { NgSelectComponent } from "./components/ng-select/ng-select.component";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [AppComponent, NgSelectComponent],
@@ -15,6 +16,7 @@ import { FormsModule } from "@angular/forms";
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    CommonModule,
     AgGridModule.withComponents([]),
     NgSelectModule,
     HttpClientModule,
