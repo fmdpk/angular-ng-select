@@ -1,3 +1,12 @@
-<ag-grid-angular style="width: 100%; height: 400px;" class="ag-theme-balham" [columnDefs]="columnDefs"
+<!-- <ag-grid-angular style="width: 100%; height: 400px;" class="ag-theme-balham" [columnDefs]="columnDefs"
   [rowData]="rowData" rowSelection="multiple" domLayout="autoHeight"
+  (selectionChanged)="onSelectionChanged($event)"></ag-grid-angular> -->
+
+<!-- <button (click)="uncheckHeaderCheckbox()">Uncheck Header Checkbox</button> -->
+
+<button (click)="removeItem()">Remove Selected Item</button>
+
+<ag-grid-angular [rowData]="rowData" style="width: 100%; height: 400px;" class="ag-theme-balham"
+  [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [rowClassRules]="rowClassRules"
+  (gridReady)="onGridReady($event)" rowSelection="multiple"
   (selectionChanged)="onSelectionChanged($event)"></ag-grid-angular>
