@@ -27,8 +27,8 @@
 <br />
 <br />
 <!-- <ng-select [items]="people3$ | async" bindLabel="name" [addTag]="true" [multiple]="true" [hideSelected]="true" -->
-<ng-select [items]="people3$ | async" bindLabel="name" [trackByFn]="trackByFn" [loading]="people3Loading"
-  [typeahead]="people3input$" [(ngModel)]="selectedPersons">
+<ng-select [items]="people3$ | async" bindLabel="name" [trackByFn]="trackByFn" [virtualScroll]="true"
+  [loading]="people3Loading" [typeahead]="people3input$" [(ngModel)]="selectedPersons">
   <ng-template ng-typetosearch-tmp>
     <div class="ng-option disabled">
       Start typing...
